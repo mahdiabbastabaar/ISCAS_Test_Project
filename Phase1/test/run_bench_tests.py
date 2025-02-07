@@ -26,10 +26,15 @@ def get_value_from_log(output_file, target_wire):
 
 
 @pytest.mark.parametrize("gate, first, second, expected", [
-    ('AND', '0', '0', '0'),
-    ('AND', '0', '1', '0'),
-    ('AND', '1', '0', '0'),
-    ('AND', '1', '1', '1'),
+    # Predicate 1:
+    ('AND', '1', '1', '1'),  # Test1 (+ Predicate 2: Test4)
+    ('AND', '1', '0', '0'),  # Test2
+    ('AND', '0', '1', '0'),  # Test3
+    ('AND', '0', '0', '0'),  # Test4
+    # Predicate 2:
+    ('AND', 'U', 'U', 'U'),  # Test1
+    ('AND', 'U', '1', 'U'),  # Test2
+    ('AND', '1', 'U', 'U'),  # Test3
 ])
 def test_and(gate, first, second, expected):
     bench_file = 'test.bench'
