@@ -35,6 +35,15 @@ def get_value_from_log(output_file, target_wire):
     ('AND', 'U', 'U', 'U'),  # Test1
     ('AND', 'U', '1', 'U'),  # Test2
     ('AND', '1', 'U', 'U'),  # Test3
+    # Predicate 3:
+    ('NOT', '0', '-', '1'),  # Test1 (+ Predicate 4: Test2)
+    ('NOT', '1', '-', '0'),  # Test2
+    # Predicate 4:
+    ('NOT', 'U', '-', 'U'),  # Test1
+    # BUFF:
+    ('BUFF', '0', '-', '0'),  # Test1
+    ('BUFF', '1', '-', '1'),  # Test2
+    ('BUFF', 'U', '-', 'U'),  # Test3
 ])
 def test_and(gate, first, second, expected):
     bench_file = 'test.bench'
