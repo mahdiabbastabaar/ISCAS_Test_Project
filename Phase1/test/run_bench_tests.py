@@ -45,7 +45,7 @@ def get_value_from_log(output_file, target_wire):
     ('BUFF', '1', '-', '1'),  # Test2
     ('BUFF', 'U', '-', 'U'),  # Test3
 ])
-def test_and(gate, first, second, expected):
+def test_gate(gate, first, second, expected):
     bench_file = 'test.bench'
     input_file = 'test.pi'
     output_file = 'test.log'
