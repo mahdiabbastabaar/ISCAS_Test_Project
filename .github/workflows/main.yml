@@ -28,4 +28,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest Phase1/tests/ -v    
+          pytest Phase1/test/ -v    
