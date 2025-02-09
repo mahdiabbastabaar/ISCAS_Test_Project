@@ -40,6 +40,23 @@ def get_value_from_log(output_file, target_wire):
     ('NOT', '1', '-', '0'),  # Test2
     # Predicate 4:
     ('NOT', 'U', '-', 'U'),  # Test1
+    # Predicate 5:
+    ('OR', '0', '0', '0'), # Test1 (+ Predicate 6: Test4)
+    ('OR', '0', '1', '1'), # Test2
+    ('OR', '1', '0', '1'), # Test3
+    ('OR', '1', '1', '1'), # Test4
+    # Predicate 6:
+    ('OR', 'U', 'U', 'U'), # Test1
+    ('OR', 'U', '0', 'U'), # Test2
+    ('OR', '0', 'U', 'U'), # Test3
+    # Predicate 7:
+    ('XOR', '1', '0', '1'), # Test1
+    ('XOR', '1', 'U', 'U'), # Test2
+    ('XOR', 'U', '1', 'U'), # Test3
+    ('XOR', 'U', 'U', 'U'), # Test4
+    # Predicate 8:
+    ('XOR', '0', '0', '0'), # Test1
+    ('XOR', '1', '1', '0'), # Test2
     # BUFF:
     ('BUFF', '0', '-', '0'),  # Test1
     ('BUFF', '1', '-', '1'),  # Test2
