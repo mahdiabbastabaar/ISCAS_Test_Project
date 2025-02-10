@@ -1,0 +1,23 @@
+#isp_files/bench_real/test4
+#4 inputs
+#3 outputs
+#1 inverters
+#7 gates ( 1 ANDs 1 NANDs 1 NORs 1 XORs 1 XNORs 1 NOTs 1 BUFFs )
+
+INPUT(4)
+INPUT(3)
+INPUT(6)
+INPUT(7)
+
+OUTPUT(2)
+OUTPUT(22)
+OUTPUT(24)
+
+2 = NOT(4)
+11 = AND(3, 6)
+16 = NOR(2, 11)
+19 = NAND(11, 7)
+22 = XOR(3, 16)
+23 = XNOR(16, 19)
+24 = BUFF(23)
+

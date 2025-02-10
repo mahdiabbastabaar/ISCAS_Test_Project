@@ -84,9 +84,9 @@ def test_gate(gate, first, second, expected):
 def test_isp(test_id):
     """Test the conversion of ISC files to BENCH format"""
 
-    isc_file_in = f"Phase1/test/isp_files/isc/test{test_id}.isc"
-    bench_file_exp = f"Phase1/test/isp_files/bench_expected/test{test_id}.bench"
-    bench_file_out = f"Phase1/test/isp_files/bench_real/test{test_id}.bench"
+    isc_file_in = f"test{test_id}.isc"
+    bench_file_exp = f"test_exp{test_id}.bench"
+    bench_file_out = f"test{test_id}.bench"
 
     print(f"\nRunning Test {test_id}: {isc_file_in}")
 
