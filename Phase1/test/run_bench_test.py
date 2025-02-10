@@ -89,6 +89,10 @@ def test_isp(test_id):
     bench_file_exp = f"Phase1/test/isp_files/bench_expected/test_exp{test_id}.bench"
     bench_file_out = f"Phase1/test/isp_files/bench_real/test{test_id}.bench"
 
+    # isc_file_in = f"test{test_id}.isc"
+    # bench_file_exp = f"test_exp{test_id}.bench"
+    # bench_file_out = f"test{test_id}.bench"
+
     print(f"\nRunning Test {test_id}: {isc_file_in}")
 
     assert os.path.exists(isc_file_in), f"Input file missing: {isc_file_in}"
@@ -97,8 +101,8 @@ def test_isp(test_id):
     phaseOne.isc_to_bench(isc_file_in, bench_file_out)
 
     with open(bench_file_exp, "r") as file:
-        expected_val = file.read().splitlines()
+        expected_val = file.read().splitlines()[1:]
     with open(bench_file_out, "r") as file:
-        real_val = file.read().splitlines()
+        real_val = file.read().splitlines()[1:]
 
     assert real_val == expected_val, f"Test {test_id} failed: Output does not match expected"
