@@ -41,22 +41,22 @@ def get_value_from_log(output_file, target_wire):
     # Predicate 4:
     ('NOT', 'U', '-', 'U'),  # Test1
     # Predicate 5:
-    ('OR', '0', '0', '0'), # Test1 (+ Predicate 6: Test4)
-    ('OR', '0', '1', '1'), # Test2
-    ('OR', '1', '0', '1'), # Test3
-    ('OR', '1', '1', '1'), # Test4
+    ('OR', '0', '0', '0'),  # Test1 (+ Predicate 6: Test4)
+    ('OR', '0', '1', '1'),  # Test2
+    ('OR', '1', '0', '1'),  # Test3
+    ('OR', '1', '1', '1'),  # Test4
     # Predicate 6:
-    ('OR', 'U', 'U', 'U'), # Test1
-    ('OR', 'U', '0', 'U'), # Test2
-    ('OR', '0', 'U', 'U'), # Test3
+    ('OR', 'U', 'U', 'U'),  # Test1
+    ('OR', 'U', '0', 'U'),  # Test2
+    ('OR', '0', 'U', 'U'),  # Test3
     # Predicate 7:
-    ('XOR', '1', '0', '1'), # Test1
-    ('XOR', '1', 'U', 'U'), # Test2
-    ('XOR', 'U', '1', 'U'), # Test3
-    ('XOR', 'U', 'U', 'U'), # Test4
+    ('XOR', '1', '0', '1'),  # Test1
+    ('XOR', '1', 'U', 'U'),  # Test2
+    ('XOR', 'U', '1', 'U'),  # Test3
+    ('XOR', 'U', 'U', 'U'),  # Test4
     # Predicate 8:
-    ('XOR', '0', '0', '0'), # Test1
-    ('XOR', '1', '1', '0'), # Test2
+    ('XOR', '0', '0', '0'),  # Test1
+    ('XOR', '1', '1', '0'),  # Test2
     # BUFF:
     ('BUFF', '0', '-', '0'),  # Test1
     ('BUFF', '1', '-', '1'),  # Test2
@@ -84,21 +84,20 @@ def test_gate(gate, first, second, expected):
 def test_isp(test_id):
     """Test the conversion of ISC files to BENCH format"""
 
-    isc_file_in = f"test1.isc"
-    bench_file_exp = f"test_exp1.bench"
-    bench_file_out = f"test1.bench"
+    isc_file_in = f"Phase1/test/isp_files/isc/test{test_id}.isc"
+    bench_file_exp = f"Phase1/test/isp_files/bench_expected/test_exp{test_id}.bench"
+    bench_file_out = f"Phase1/test/isp_files/bench_real/test{test_id}.bench"
 
-    print(f"\nRunning Test 1: {isc_file_in}")
+    print(f"\nRunning Test {test_id}: {isc_file_in}")
 
     assert os.path.exists(isc_file_in), f"Input file missing: {isc_file_in}"
     assert os.path.exists(bench_file_exp), f"Expected output file missing: {bench_file_exp}"
 
     phaseOne.isc_to_bench(isc_file_in, bench_file_out)
 
-    with open(bench_file_exp) as file:
-        expected_val = file.read().split("\n")[1:]
-    with open(bench_file_out) as file:
-        real_val = file.read().split("\n")[1:]
+    with open(bench_file_exp, "r") as file:
+        expected_val = file.read().splitlines()
+    with open(bench_file_out, "r") as file:
+        real_val = file.read().splitlines()
 
     assert real_val == expected_val, f"Test {test_id} failed: Output does not match expected"
-
