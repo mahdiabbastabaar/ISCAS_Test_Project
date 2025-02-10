@@ -82,9 +82,9 @@ def test_gate(gate, first, second, expected):
 def test_isp():
     for i in range(1, 14):  # Loop from test1 to test13
         print()
-        isc_file_in = f"Phase1/test/isp_files/isc/test{i}.isc"
-        bench_file_exp = f"Phase1/test/isp_files/bench_expected/test{i}.bench"
-        bench_file_out = f"Phase1/test/isp_files/bench_real/test{i}.bench"
+        isc_file_in = f"/Phase1/test/isp_files/isc/test{i}.isc"
+        bench_file_exp = f"/Phase1/test/isp_files/bench_expected/test{i}.bench"
+        bench_file_out = f"/Phase1/test/isp_files/bench_real/test{i}.bench"
         print("cwd: ", os.getcwd())
         print("ls: ", os.listdir())
         phaseOne.isc_to_bench(isc_file_in, bench_file_out)
