@@ -80,7 +80,6 @@ def test_gate(gate, first, second, expected):
     assert get_value_from_log(output_file, 3) == expected
 
 
-
 @pytest.mark.parametrize("test_id", range(1, 14))
 def test_isp(test_id):
     """Test the conversion of ISC files to BENCH format"""
@@ -88,6 +87,8 @@ def test_isp(test_id):
     isc_file_in = f"Phase1/test/isp_files/isc/test{test_id}.isc"
     bench_file_exp = f"Phase1/test/isp_files/bench_expected/test_exp{test_id}.bench"
     bench_file_out = f"Phase1/test/isp_files/bench_real/test{test_id}.bench"
+
+    # for local testing
 
     # isc_file_in = f"test{test_id}.isc"
     # bench_file_exp = f"test_exp{test_id}.bench"
