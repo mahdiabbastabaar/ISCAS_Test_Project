@@ -86,6 +86,7 @@ def test_isp():
         bench_file_exp = f"Phase1/test/isp_files/bench_expected/test{i}.bench"
         bench_file_out = f"Phase1/test/isp_files/bench_real/test{i}.bench"
         print("cwd: ", os.getcwd())
+        print("ls: ", os.listdir())
         phaseOne.isc_to_bench(isc_file_in, bench_file_out)
         with open(bench_file_exp) as file:
             expected_val = file.read().split("\n")[1:]
