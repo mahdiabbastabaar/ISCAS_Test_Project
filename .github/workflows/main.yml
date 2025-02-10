@@ -26,6 +26,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
 
+      - name: Debug Files
+        run: ls -R Phase1/test/isp_files
+
       - name: Run tests
         run: |
           pytest Phase1/test/ -v    
