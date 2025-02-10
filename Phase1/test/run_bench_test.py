@@ -1,5 +1,5 @@
 import pytest
-
+import os
 from Phase1 import phaseOne
 
 bench_format = """
@@ -81,10 +81,11 @@ def test_gate(gate, first, second, expected):
 
 def test_isp():
     for i in range(1, 14):  # Loop from test1 to test13
+        print()
         isc_file_in = f"isp_files\\isc\\test{i}.isc"
         bench_file_exp = f"isp_files\\bench_expected\\test{i}.bench"
         bench_file_out = f"isp_files\\bench_real\\test{i}.bench"
-
+        print(os.getcwd())
         phaseOne.isc_to_bench(isc_file_in, bench_file_out)
         with open(bench_file_exp) as file:
             expected_val = file.read().split("\n")[1:]
